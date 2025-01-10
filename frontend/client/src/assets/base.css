@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, #app{
+    width: 100dvw;
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
