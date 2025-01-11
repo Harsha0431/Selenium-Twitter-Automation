@@ -3,6 +3,9 @@ This project is a full-stack web application designed to deliver a seamless user
 
 The backend uses Flask and Selenium for handling APIs and automation tasks, while the frontend is built with modern JavaScript frameworks for dynamic and responsive interfaces. This project is currently under development and includes features like authentication and data scraping. Future improvements include implementing a proxy setup and deploying the application using Docker.
 
+![Website Screenshot with output](./outputs/img4.png)
+![Website Screenshot Displaying its responsiveness](./outputs/img1-1.png)
+
 ### Table of Contents
   1. [Project Overview](#project-overview)
   2. [Prerequisites](#prerequisites)
