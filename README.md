@@ -1,5 +1,15 @@
-## Selenium Twitter Automation  
-  
+## Selenium Twitter Automation
+This project is a full-stack web application designed to deliver a seamless user experience by integrating a robust backend with an intuitive frontend. The application leverages **Python** and **Node.js** for backend and frontend development, respectively, and aims to implement advanced functionalities such as automated workflows, data fetching, and proxy integration.
+
+The backend uses Flask and Selenium for handling APIs and automation tasks, while the frontend is built with modern JavaScript frameworks for dynamic and responsive interfaces. This project is currently under development and includes features like authentication and data scraping. Future improvements include implementing a proxy setup and deploying the application using Docker.
+
+### Table of Contents
+  1. [Project Overview](#project-overview)
+  2. [Prerequisites](#prerequisites)
+  3. [Setup Instructions](#setup-instructions)
+  4. [Challenges Faced](#challenges-faced-in-project-setup-and-development)
+  5. [Conclusion](#conclusion)
+
 ### Project Overview  
 This project is a full-stack application that consists of a Flask backend and a Node.js frontend. It uses Python for the backend server and Node.js for the frontend. The project aims to automate some processes using Selenium, and the frontend interacts with the backend through RESTful APIs.  
   
@@ -16,7 +26,7 @@ npm install -g pnpm
   
 ---  
   
-## Steps to Setup  
+## Setup Instructions  
 Follow these steps to get your project up and running:  
 1. **Clone the Repository** 
 ```commandLine
