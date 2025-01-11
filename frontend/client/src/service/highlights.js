@@ -8,7 +8,7 @@ export async function getTopHighlights(data) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            timeout: 60000, // 1min
+            timeout: 60000*2, // 2min
         });
         return response.data;
     }
