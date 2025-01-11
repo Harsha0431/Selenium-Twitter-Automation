@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  flask-app:
+    build:
+      context: .
+    environment:
+      - COMMAND_EXECUTOR=http://selenium-server:4444/wd/hub
+      - FLASK_ENV=production
+    ports:
+      - "5000:5000"
+    networks:
+      - flask-selenium
+
+  selenium-server:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+    shm_size: "2g"
+    networks:
+      - flask-selenium
+
+networks:
+  flask-selenium:
+    driver: bridge

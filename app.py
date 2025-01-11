@@ -9,6 +9,8 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
+DEBUG = os.getenv("FLASK_ENV", "DEVELOPMENT")
+
 
 @app.route('/list/highlights', methods=['POST'])
 def custom_endpoint():
@@ -30,4 +32,4 @@ def custom_endpoint():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=(DEBUG == "DEVELOPMENT"))

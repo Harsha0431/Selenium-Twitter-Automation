@@ -89,3 +89,5 @@ Thumbs.db
 frontend/client/node_modules
 frontend/client/.env
 frontend/client/.vscode
+
+.dockerignore

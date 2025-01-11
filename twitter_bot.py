@@ -20,6 +20,9 @@ PROXYMESH_USERNAME = os.getenv("PROXYMESH_USERNAME")
 PROXYMESH_PASSWORD = os.getenv("PROXYMESH_PASSWORD")
 PROXYMESH_HOST = os.getenv("PROXYMESH_HOST")
 PROXYMESH_PORT = os.getenv("PROXYMESH_PORT")
+COMMAND_EXECUTOR = os.getenv("COMMAND_EXECUTOR", "http://127.0.0.1:4444/wd/hub")
+
+IN_DEVELOPMENT = os.getenv("FLASK_ENV", "DEVELOPMENT") == "DEVELOPMENT"
 
 TIME_OUT = 20
 ACTIVATE_PROXY = False
@@ -50,10 +53,19 @@ class Twitterbot:
             chrome_options.add_extension("proxy_auth_plugin.zip")
         # chrome_options.add_argument(f'--proxy-server={proxy_url}')
 
-        if ACTIVATE_PROXY:
-            self.bot = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+        if not IN_DEVELOPMENT:
+            chrome_options.add_argument("--no-sandbox")  # Required to run Chrome as root
+            chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options.add_argument("--disable-gpu")
+            chrome_options.add_argument("--disable-extensions")
+            chrome_options.add_argument("--disable-setuid-sandbox")
+            chrome_options.add_argument("--remote-debugging-port=9222")
+            chrome_options.binary_location = "/usr/bin/google-chrome"
+            chrome_options.add_argument('--ignore-ssl-errors=yes')
+            chrome_options.add_argument('--ignore-certificate-errors')
+            self.bot = webdriver.Remote(command_executor=COMMAND_EXECUTOR, options=chrome_options)
         else:
-            self.bot = webdriver.Chrome(options=chrome_options)
+            self.bot = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     def login(self):
         bot = self.bot
